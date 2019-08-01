@@ -1,0 +1,17 @@
+{
+    "name": "allexus/realtime-chat-php-api",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "authors": [
+        {
+            "name": "Oleksandr Strakhov",
+            "email": "mrallexus@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RealtimeChat\\": "src"
+        }
+    }
+}
