@@ -160,7 +160,7 @@ class UserService extends Service
                 'json' => $data
             ]);
             $content = json_decode((string)$response->getBody(), true);
-dd((string)$response->getBody());
+
             return $content['data'];
         } catch (BadResponseException $e) {
             $content = json_decode((string)$e->getResponse()->getBody(), true);

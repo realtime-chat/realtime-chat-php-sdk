@@ -13,7 +13,7 @@ class ChannelMessageService extends Service
         $response = $this->client->get($this->route, [
             'query' => $options
         ]);
-        $content = json_decode($response->getBody(), true);
+        $content = json_decode((string)$response->getBody(), true);
 
         return $content['data'];
     }
@@ -21,7 +21,7 @@ class ChannelMessageService extends Service
     public function findById(int $id)
     {
         $response = $this->client->get($this->route . '/' . $id);
-        $content = json_decode($response->getBody(), true);
+        $content = json_decode((string)$response->getBody(), true);
 
         return $content['data'];
     }
@@ -36,7 +36,7 @@ class ChannelMessageService extends Service
         $response = $this->client->post($this->route . '/' . $id, [
             'json' => $data
         ]);
-        $content = json_decode($response->getBody(), true);
+        $content = json_decode((string)$response->getBody(), true);
 
         return $content['data'];
     }
@@ -46,7 +46,7 @@ class ChannelMessageService extends Service
         $response = $this->client->post($this->route, [
             'json' => $data
         ]);
-        $content = json_decode($response->getBody(), true);
+        $content = json_decode((string)$response->getBody(), true);
 
         return $content['data'];
     }
