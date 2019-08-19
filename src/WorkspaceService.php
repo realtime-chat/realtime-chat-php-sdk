@@ -50,4 +50,24 @@ class WorkspaceService extends Service
 
         return $content['data'];
     }
+
+    public function findUsers(int $workspaceId, array $options): array
+    {
+        $response = $this->client->get($this->route . '/' . $workspaceId . '/users', [
+            'query' => $options
+        ]);
+        $content = json_decode((string)$response->getBody(), true);
+
+        return $content['data'];
+    }
+
+    public function createWorkspaceUser(int $workspaceId, array $options): array
+    {
+        $response = $this->client->post($this->route . '/' . $workspaceId . '/users', [
+            'query' => $options
+        ]);
+        $content = json_decode((string)$response->getBody(), true);
+
+        return $content['data'];
+    }
 }
