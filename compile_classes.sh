@@ -1,0 +1,1 @@
+rm -rf generated/* && ./protoc --php_out=generated --proto_path=protos protos/**/*.proto protos/*.proto

@@ -1,7 +1,8 @@
 {
     "name": "allexus/realtime-chat-php-sdk",
     "require": {
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^6.3",
+        "google/protobuf": "^3.9"
     },
     "authors": [
         {
@@ -10,8 +11,12 @@
         }
     ],
     "autoload": {
+        "classmap": [
+            "generated/GPBMetadata"
+        ],
         "psr-4": {
-            "RealtimeChat\\": "src"
+            "RealtimeChat\\": "src",
+            "": "generated"
         }
     }
 }

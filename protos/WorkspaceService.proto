@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "models/Error.proto";
+import "models/Workspace.proto";
+
+package realtimeChat.rpc;
+
+option php_generic_services = true;
+
+service WorkspaceService {
+    rpc findById (FindWorkspaceByIdRequest) returns (FindWorkspaceByIdResponse);
+    rpc create (CreateWorkspaceRequest) returns (CreateWorkspaceResponse);
+    rpc updateById (UpdateWorkspaceByIdRequest) returns (UpdateWorkspaceByIdResponse);
+    rpc deleteById (DeleteWorkspaceByIdRequest) returns (DeleteWorkspaceByIdResponse);
+}
+
+message FindWorkspaceByIdRequest {
+    int32 id = 1;
+}
+
+message FindWorkspaceByIdResponse {
+    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.Workspace data = 2;
+}
+
+message CreateWorkspaceRequest {
+    string name = 1;
+    string description = 2;
+    int32 owner_id = 3;
+}
+
+message CreateWorkspaceResponse {
+    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.Workspace data = 2;
+}
+
+message UpdateWorkspaceByIdRequest {
+    int32 id = 1;
+    string name = 2;
+    string description = 3;
+    int32 owner_id = 4;
+}
+
+message UpdateWorkspaceByIdResponse {
+    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.Workspace data = 2;
+}
+
+message DeleteWorkspaceByIdRequest {
+    int32 id = 1;
+}
+
+message DeleteWorkspaceByIdResponse {
+    realtimeChat.rpc.models.Error error = 1;
+}

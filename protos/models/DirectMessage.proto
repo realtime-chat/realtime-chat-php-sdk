@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package realtimeChat.rpc.models;
+
+message DirectMessage {
+    int32 id = 1;
+    string body = 2;
+    int32 sender_id = 3;
+    int32 receiver_id = 4;
+    int32 workspace_id = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string deleted_at = 8;
+}

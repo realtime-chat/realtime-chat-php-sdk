@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "models/Error.proto";
+import "models/DirectMessage.proto";
+
+package realtimeChat.rpc;
+
+option php_generic_services = true;
+
+service DirectMessageService {
+    rpc findById (FindDirectMessageByIdRequest) returns (FindDirectMessageByIdResponse);
+    rpc create (CreateDirectMessageRequest) returns (CreateDirectMessageResponse);
+    rpc updateById (UpdateDirectMessageByIdRequest) returns (UpdateDirectMessageByIdResponse);
+    rpc deleteById (DeleteDirectMessageByIdRequest) returns (DeleteDirectMessageByIdResponse);
+}
+
+message FindDirectMessageByIdRequest {
+    int32 id = 1;
+}
+
+message FindDirectMessageByIdResponse {
+    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.DirectMessage data = 2;
+}
+
+message CreateDirectMessageRequest {
+    string body = 1;
+    int32 sender_id = 2;
+    int32 receiver_id = 3;
+    int32 workspace_id = 4;
+}
+
+message CreateDirectMessageResponse {
+    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.DirectMessage data = 2;
+}
+
+message UpdateDirectMessageByIdRequest {
+    int32 id = 1;
+    string body = 2;
+    int32 sender_id = 3;
+    int32 receiver_id = 4;
+    int32 workspace_id = 5;
+}
+
+message UpdateDirectMessageByIdResponse {
+    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.DirectMessage data = 2;
+}
+
+message DeleteDirectMessageByIdRequest {
+    int32 id = 1;
+}
+
+message DeleteDirectMessageByIdResponse {
+    realtimeChat.rpc.models.Error error = 1;
+}

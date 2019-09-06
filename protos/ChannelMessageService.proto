@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "models/Error.proto";
+import "models/ChannelMessage.proto";
+
+package realtimeChat.rpc;
+
+option php_generic_services = true;
+
+service ChannelMessageService {
+    rpc findById (FindChannelMessageByIdRequest) returns (FindChannelMessageByIdResponse);
+    rpc create (CreateChannelMessageRequest) returns (CreateChannelMessageResponse);
+    rpc updateById (UpdateChannelMessageByIdRequest) returns (UpdateChannelMessageByIdResponse);
+    rpc deleteById (DeleteChannelMessageByIdRequest) returns (DeleteChannelMessageByIdResponse);
+}
+
+message FindChannelMessageByIdRequest {
+    int32 id = 1;
+}
+
+message FindChannelMessageByIdResponse {
+    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.ChannelMessage data = 2;
+}
+
+message CreateChannelMessageRequest {
+    string body = 1;
+    int32 sender_id = 2;
+    int32 channel_id = 3;
+}
+
+message CreateChannelMessageResponse {
+    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.ChannelMessage data = 2;
+}
+
+message UpdateChannelMessageByIdRequest {
+    int32 id = 1;
+    string body = 2;
+    int32 sender_id = 3;
+    int32 channel_id = 4;
+}
+
+message UpdateChannelMessageByIdResponse {
+    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.ChannelMessage data = 2;
+}
+
+message DeleteChannelMessageByIdRequest {
+    int32 id = 1;
+}
+
+message DeleteChannelMessageByIdResponse {
+    realtimeChat.rpc.models.Error error = 1;
+}

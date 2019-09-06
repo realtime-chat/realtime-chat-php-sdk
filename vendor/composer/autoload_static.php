@@ -14,6 +14,10 @@ class ComposerStaticInitc2dcedd7cbd2d16a1acc2ea0464f6ad9
     );
 
     public static $prefixLengthsPsr4 = array (
+        'R' => 
+        array (
+            'RealtimeChat\\' => 13,
+        ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
@@ -23,10 +27,16 @@ class ComposerStaticInitc2dcedd7cbd2d16a1acc2ea0464f6ad9
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+            'Google\\Protobuf\\' => 16,
+            'GPBMetadata\\Google\\Protobuf\\' => 28,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'RealtimeChat\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
@@ -43,6 +53,24 @@ class ComposerStaticInitc2dcedd7cbd2d16a1acc2ea0464f6ad9
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
+        'Google\\Protobuf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/protobuf/src/Google/Protobuf',
+        ),
+        'GPBMetadata\\Google\\Protobuf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/protobuf/src/GPBMetadata/Google/Protobuf',
+        ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/../..' . '/generated',
+    );
+
+    public static $classMap = array (
+        'GPBMetadata\\Models\\Error' => __DIR__ . '/../..' . '/generated/GPBMetadata/Models/Error.php',
+        'GPBMetadata\\Models\\User' => __DIR__ . '/../..' . '/generated/GPBMetadata/Models/User.php',
+        'GPBMetadata\\UserService' => __DIR__ . '/../..' . '/generated/GPBMetadata/UserService.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -50,6 +78,8 @@ class ComposerStaticInitc2dcedd7cbd2d16a1acc2ea0464f6ad9
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitc2dcedd7cbd2d16a1acc2ea0464f6ad9::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitc2dcedd7cbd2d16a1acc2ea0464f6ad9::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInitc2dcedd7cbd2d16a1acc2ea0464f6ad9::$fallbackDirsPsr4;
+            $loader->classMap = ComposerStaticInitc2dcedd7cbd2d16a1acc2ea0464f6ad9::$classMap;
 
         }, null, ClassLoader::class);
     }
