@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace RealtimeChat\Api\Exception;
+namespace RealtimeChat\Exception;
 
 use DomainException;
 
-class UnknownErrorException extends DomainException
+class UnknownException extends DomainException
 {
     protected $message = 'Unknown error.';
 }

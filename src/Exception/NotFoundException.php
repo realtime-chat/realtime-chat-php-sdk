@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace RealtimeChat\Api\Exception;
+namespace RealtimeChat\Exception;
 
 use DomainException;
 
-class ModelNotFoundException extends DomainException
+class NotFoundException extends DomainException
 {
     protected $message = 'Model not found.';
 }
