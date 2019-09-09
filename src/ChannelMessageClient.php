@@ -10,43 +10,52 @@ use RealtimeChat\Rpc\DeleteChannelMessageByIdRequest;
 use RealtimeChat\Rpc\DeleteChannelMessageByIdResponse;
 use RealtimeChat\Rpc\FindChannelMessageByIdRequest;
 use RealtimeChat\Rpc\FindChannelMessageByIdResponse;
+use RealtimeChat\Rpc\Models\ChannelMessage;
 use RealtimeChat\Rpc\UpdateChannelMessageByIdRequest;
 use RealtimeChat\Rpc\UpdateChannelMessageByIdResponse;
 use RealtimeChat\Rpc\ChannelMessageServiceInterface;
 
 class ChannelMessageClient extends Client implements ChannelMessageServiceInterface
 {
-	protected $route = 'ChannelMessages';
+	protected $route = 'channelMessages';
 
-	public function findById(FindChannelMessageByIdRequest $request): FindChannelMessageByIdResponse
+	public function findById(FindChannelMessageByIdRequest $request): ChannelMessage
 	{
 		$response = new FindChannelMessageByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'findById'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function create(CreateChannelMessageRequest $request): CreateChannelMessageResponse
+	public function create(CreateChannelMessageRequest $request): ChannelMessage
 	{
 		$response = new CreateChannelMessageResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'create'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function updateById(UpdateChannelMessageByIdRequest $request): UpdateChannelMessageByIdResponse
+	public function updateById(UpdateChannelMessageByIdRequest $request): ChannelMessage
 	{
 		$response = new UpdateChannelMessageByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'updateById'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function deleteById(DeleteChannelMessageByIdRequest $request): DeleteChannelMessageByIdResponse
+	public function deleteById(DeleteChannelMessageByIdRequest $request): bool
 	{
 		$response = new DeleteChannelMessageByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'deleteById'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return true;
 	}
 }

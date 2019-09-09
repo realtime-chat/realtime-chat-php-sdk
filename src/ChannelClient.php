@@ -10,43 +10,52 @@ use RealtimeChat\Rpc\DeleteChannelByIdRequest;
 use RealtimeChat\Rpc\DeleteChannelByIdResponse;
 use RealtimeChat\Rpc\FindChannelByIdRequest;
 use RealtimeChat\Rpc\FindChannelByIdResponse;
+use RealtimeChat\Rpc\Models\Channel;
 use RealtimeChat\Rpc\UpdateChannelByIdRequest;
 use RealtimeChat\Rpc\UpdateChannelByIdResponse;
 use RealtimeChat\Rpc\ChannelServiceInterface;
 
 class ChannelClient extends Client implements ChannelServiceInterface
 {
-	protected $route = 'Channels';
+	protected $route = 'channels';
 
-	public function findById(FindChannelByIdRequest $request): FindChannelByIdResponse
+	public function findById(FindChannelByIdRequest $request): Channel
 	{
 		$response = new FindChannelByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'findById'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function create(CreateChannelRequest $request): CreateChannelResponse
+	public function create(CreateChannelRequest $request): Channel
 	{
 		$response = new CreateChannelResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'create'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function updateById(UpdateChannelByIdRequest $request): UpdateChannelByIdResponse
+	public function updateById(UpdateChannelByIdRequest $request): Channel
 	{
 		$response = new UpdateChannelByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'create'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function deleteById(DeleteChannelByIdRequest $request): DeleteChannelByIdResponse
+	public function deleteById(DeleteChannelByIdRequest $request): bool
 	{
 		$response = new DeleteChannelByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'create'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return true;
 	}
 }

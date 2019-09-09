@@ -37,10 +37,6 @@ class User extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string updated_at = 6;</code>
      */
     private $updated_at = '';
-    /**
-     * Generated from protobuf field <code>string deleted_at = 7;</code>
-     */
-    private $deleted_at = '';
 
     /**
      * Constructor.
@@ -54,7 +50,6 @@ class User extends \Google\Protobuf\Internal\Message
      *     @type string $email
      *     @type string $created_at
      *     @type string $updated_at
-     *     @type string $deleted_at
      * }
      */
     public function __construct($data = NULL) {
@@ -190,28 +185,6 @@ class User extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->updated_at = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string deleted_at = 7;</code>
-     * @return string
-     */
-    public function getDeletedAt()
-    {
-        return $this->deleted_at;
-    }
-
-    /**
-     * Generated from protobuf field <code>string deleted_at = 7;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setDeletedAt($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->deleted_at = $var;
 
         return $this;
     }

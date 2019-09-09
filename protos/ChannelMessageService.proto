@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "models/Error.proto";
+import "models/Status.proto";
 import "models/ChannelMessage.proto";
 
 package realtimeChat.rpc;
@@ -19,7 +19,7 @@ message FindChannelMessageByIdRequest {
 }
 
 message FindChannelMessageByIdResponse {
-    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.Status status = 1;
     realtimeChat.rpc.models.ChannelMessage data = 2;
 }
 
@@ -30,7 +30,7 @@ message CreateChannelMessageRequest {
 }
 
 message CreateChannelMessageResponse {
-    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.Status status = 1;
     realtimeChat.rpc.models.ChannelMessage data = 2;
 }
 
@@ -42,7 +42,7 @@ message UpdateChannelMessageByIdRequest {
 }
 
 message UpdateChannelMessageByIdResponse {
-    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.Status status = 1;
     realtimeChat.rpc.models.ChannelMessage data = 2;
 }
 
@@ -51,5 +51,5 @@ message DeleteChannelMessageByIdRequest {
 }
 
 message DeleteChannelMessageByIdResponse {
-    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.Status status = 1;
 }

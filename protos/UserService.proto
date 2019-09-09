@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "models/Error.proto";
+import "models/Status.proto";
 import "models/User.proto";
 
 package realtimeChat.rpc;
@@ -21,7 +21,7 @@ message FindUserByIdRequest {
 }
 
 message FindUserByIdResponse {
-  realtimeChat.rpc.models.Error error = 1;
+  realtimeChat.rpc.models.Status status = 1;
   realtimeChat.rpc.models.User data = 2;
 }
 
@@ -30,7 +30,7 @@ message FindUserByEmailRequest {
 }
 
 message FindUserByEmailResponse {
-  realtimeChat.rpc.models.Error error = 1;
+  realtimeChat.rpc.models.Status status = 1;
   realtimeChat.rpc.models.User data = 2;
 }
 
@@ -42,7 +42,7 @@ message CreateUserRequest {
 }
 
 message CreateUserResponse {
-  realtimeChat.rpc.models.Error error = 1;
+  realtimeChat.rpc.models.Status status = 1;
   realtimeChat.rpc.models.User data = 2;
 }
 
@@ -55,7 +55,7 @@ message UpdateUserByIdRequest {
 }
 
 message UpdateUserByIdResponse {
-  realtimeChat.rpc.models.Error error = 1;
+  realtimeChat.rpc.models.Status status = 1;
   realtimeChat.rpc.models.User data = 2;
 }
 
@@ -64,7 +64,7 @@ message DeleteUserByIdRequest {
 }
 
 message DeleteUserByIdResponse {
-  realtimeChat.rpc.models.Error error = 1;
+  realtimeChat.rpc.models.Status status = 1;
 }
 
 message VerifyUserPasswordRequest {
@@ -73,5 +73,5 @@ message VerifyUserPasswordRequest {
 }
 
 message VerifyUserPasswordResponse {
-  realtimeChat.rpc.models.Error error = 1;
+  realtimeChat.rpc.models.Status status = 1;
 }

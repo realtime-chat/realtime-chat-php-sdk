@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "models/Error.proto";
+import "models/Status.proto";
 import "models/DirectMessage.proto";
 
 package realtimeChat.rpc;
@@ -19,7 +19,7 @@ message FindDirectMessageByIdRequest {
 }
 
 message FindDirectMessageByIdResponse {
-    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.Status status = 1;
     realtimeChat.rpc.models.DirectMessage data = 2;
 }
 
@@ -31,7 +31,7 @@ message CreateDirectMessageRequest {
 }
 
 message CreateDirectMessageResponse {
-    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.Status status = 1;
     realtimeChat.rpc.models.DirectMessage data = 2;
 }
 
@@ -44,7 +44,7 @@ message UpdateDirectMessageByIdRequest {
 }
 
 message UpdateDirectMessageByIdResponse {
-    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.Status status = 1;
     realtimeChat.rpc.models.DirectMessage data = 2;
 }
 
@@ -53,5 +53,5 @@ message DeleteDirectMessageByIdRequest {
 }
 
 message DeleteDirectMessageByIdResponse {
-    realtimeChat.rpc.models.Error error = 1;
+    realtimeChat.rpc.models.Status status = 1;
 }

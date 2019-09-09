@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class DeleteDirectMessageByIdResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.realtimeChat.rpc.models.Error error = 1;</code>
+     * Generated from protobuf field <code>.realtimeChat.rpc.models.Status status = 1;</code>
      */
-    private $error = null;
+    private $status = null;
 
     /**
      * Constructor.
@@ -24,7 +24,7 @@ class DeleteDirectMessageByIdResponse extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \RealtimeChat\Rpc\Models\Error $error
+     *     @type \RealtimeChat\Rpc\Models\Status $status
      * }
      */
     public function __construct($data = NULL) {
@@ -33,23 +33,23 @@ class DeleteDirectMessageByIdResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.realtimeChat.rpc.models.Error error = 1;</code>
-     * @return \RealtimeChat\Rpc\Models\Error
+     * Generated from protobuf field <code>.realtimeChat.rpc.models.Status status = 1;</code>
+     * @return \RealtimeChat\Rpc\Models\Status
      */
-    public function getError()
+    public function getStatus()
     {
-        return $this->error;
+        return $this->status;
     }
 
     /**
-     * Generated from protobuf field <code>.realtimeChat.rpc.models.Error error = 1;</code>
-     * @param \RealtimeChat\Rpc\Models\Error $var
+     * Generated from protobuf field <code>.realtimeChat.rpc.models.Status status = 1;</code>
+     * @param \RealtimeChat\Rpc\Models\Status $var
      * @return $this
      */
-    public function setError($var)
+    public function setStatus($var)
     {
-        GPBUtil::checkMessage($var, \RealtimeChat\Rpc\Models\Error::class);
-        $this->error = $var;
+        GPBUtil::checkMessage($var, \RealtimeChat\Rpc\Models\Status::class);
+        $this->status = $var;
 
         return $this;
     }

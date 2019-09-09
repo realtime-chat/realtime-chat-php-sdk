@@ -10,43 +10,52 @@ use RealtimeChat\Rpc\DeleteDirectMessageByIdRequest;
 use RealtimeChat\Rpc\DeleteDirectMessageByIdResponse;
 use RealtimeChat\Rpc\FindDirectMessageByIdRequest;
 use RealtimeChat\Rpc\FindDirectMessageByIdResponse;
+use RealtimeChat\Rpc\Models\DirectMessage;
 use RealtimeChat\Rpc\UpdateDirectMessageByIdRequest;
 use RealtimeChat\Rpc\UpdateDirectMessageByIdResponse;
 use RealtimeChat\Rpc\DirectMessageServiceInterface;
 
 class DirectMessageClient extends Client implements DirectMessageServiceInterface
 {
-	protected $route = 'DirectMessages';
+	protected $route = 'directMessages';
 
-	public function findById(FindDirectMessageByIdRequest $request): FindDirectMessageByIdResponse
+	public function findById(FindDirectMessageByIdRequest $request): DirectMessage
 	{
 		$response = new FindDirectMessageByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'findById'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function create(CreateDirectMessageRequest $request): CreateDirectMessageResponse
+	public function create(CreateDirectMessageRequest $request): DirectMessage
 	{
 		$response = new CreateDirectMessageResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'create'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function updateById(UpdateDirectMessageByIdRequest $request): UpdateDirectMessageByIdResponse
+	public function updateById(UpdateDirectMessageByIdRequest $request): DirectMessage
 	{
 		$response = new UpdateDirectMessageByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'updateById'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function deleteById(DeleteDirectMessageByIdRequest $request): DeleteDirectMessageByIdResponse
+	public function deleteById(DeleteDirectMessageByIdRequest $request): bool
 	{
 		$response = new DeleteDirectMessageByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'deleteById'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return true;
 	}
 }

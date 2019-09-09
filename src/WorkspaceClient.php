@@ -10,6 +10,7 @@ use RealtimeChat\Rpc\DeleteWorkspaceByIdRequest;
 use RealtimeChat\Rpc\DeleteWorkspaceByIdResponse;
 use RealtimeChat\Rpc\FindWorkspaceByIdRequest;
 use RealtimeChat\Rpc\FindWorkspaceByIdResponse;
+use RealtimeChat\Rpc\Models\Workspace;
 use RealtimeChat\Rpc\UpdateWorkspaceByIdRequest;
 use RealtimeChat\Rpc\UpdateWorkspaceByIdResponse;
 use RealtimeChat\Rpc\WorkspaceServiceInterface;
@@ -18,35 +19,43 @@ class WorkspaceClient extends Client implements WorkspaceServiceInterface
 {
 	protected $route = 'workspaces';
 
-	public function findById(FindWorkspaceByIdRequest $request): FindWorkspaceByIdResponse
+	public function findById(FindWorkspaceByIdRequest $request): Workspace
 	{
 		$response = new FindWorkspaceByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'findById'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function create(CreateWorkspaceRequest $request): CreateWorkspaceResponse
+	public function create(CreateWorkspaceRequest $request): Workspace
 	{
 		$response = new CreateWorkspaceResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'create'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function updateById(UpdateWorkspaceByIdRequest $request): UpdateWorkspaceByIdResponse
+	public function updateById(UpdateWorkspaceByIdRequest $request): Workspace
 	{
 		$response = new UpdateWorkspaceByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'updateById'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return $response->getData();
 	}
 
-	public function deleteById(DeleteWorkspaceByIdRequest $request): DeleteWorkspaceByIdResponse
+	public function deleteById(DeleteWorkspaceByIdRequest $request): bool
 	{
 		$response = new DeleteWorkspaceByIdResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'deleteById'));
 
-		return $response;
+		$this->handleError($response->getStatus());
+
+		return true;
 	}
 }
