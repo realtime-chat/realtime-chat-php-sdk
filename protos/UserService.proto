@@ -9,6 +9,7 @@ option php_generic_services = true;
 
 service UserService {
   rpc findById (FindUserByIdRequest) returns (FindUserByIdResponse);
+  rpc findByIds (FindUsersByIdsRequest) returns (FindUsersByIdsResponse);
   rpc findByEmail (FindUserByEmailRequest) returns (FindUserByEmailResponse);
   rpc create (CreateUserRequest) returns (CreateUserResponse);
   rpc updateById (UpdateUserByIdRequest) returns (UpdateUserByIdResponse);
@@ -23,6 +24,15 @@ message FindUserByIdRequest {
 message FindUserByIdResponse {
   realtimeChat.rpc.models.Status status = 1;
   realtimeChat.rpc.models.User data = 2;
+}
+
+message FindUsersByIdsRequest {
+  repeated int32 id = 1;
+}
+
+message FindUsersByIdsResponse {
+  realtimeChat.rpc.models.Status status = 1;
+  repeated realtimeChat.rpc.models.User data = 2;
 }
 
 message FindUserByEmailRequest {

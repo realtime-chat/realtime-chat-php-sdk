@@ -18,6 +18,14 @@ interface UserServiceInterface
     public function findById(\RealtimeChat\Rpc\FindUserByIdRequest $request);
 
     /**
+     * Method <code>findByIds</code>
+     *
+     * @param \RealtimeChat\Rpc\FindUsersByIdsRequest $request
+     * @return \RealtimeChat\Rpc\FindUsersByIdsResponse
+     */
+    public function findByIds(\RealtimeChat\Rpc\FindUsersByIdsRequest $request);
+
+    /**
      * Method <code>findByEmail</code>
      *
      * @param \RealtimeChat\Rpc\FindUserByEmailRequest $request
