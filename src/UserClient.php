@@ -41,8 +41,11 @@ class UserClient extends Client implements UserServiceInterface
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'findByIds'));
 
 		$this->handleError($response->getStatus());
-		
-        return $response->getData();
+
+		$data = [];
+		array_push($data, ...$response->getData());
+
+        return $data;
 	}
 
     public function findByEmail(FindUserByEmailRequest $request): User
