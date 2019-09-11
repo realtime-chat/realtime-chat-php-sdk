@@ -10,6 +10,8 @@ use RealtimeChat\Rpc\DeleteUserByIdRequest;
 use RealtimeChat\Rpc\DeleteUserByIdResponse;
 use RealtimeChat\Rpc\FindUserByIdRequest;
 use RealtimeChat\Rpc\FindUserByIdResponse;
+use RealtimeChat\Rpc\FindUsersByIdsRequest;
+use RealtimeChat\Rpc\FindUsersByIdsResponse;
 use RealtimeChat\Rpc\FindUserByEmailRequest;
 use RealtimeChat\Rpc\FindUserByEmailResponse;
 use RealtimeChat\Rpc\Models\User;
@@ -33,6 +35,16 @@ class UserClient extends Client implements UserServiceInterface
         return $response->getData();
 	}
 	
+	public function findByIds(FindUsersByIdsRequest $request)
+	{
+		$response = new FindUsersByIdsResponse();
+		$response->mergeFromString($this->makeRequest($request, $this->route, 'findByIds'));
+
+		$this->handleError($response->getStatus());
+		
+        return $response->getData();
+	}
+
     public function findByEmail(FindUserByEmailRequest $request): User
     {
 		$response = new FindUserByEmailResponse();
