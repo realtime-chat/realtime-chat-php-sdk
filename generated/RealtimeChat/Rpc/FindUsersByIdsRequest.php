@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class FindUsersByIdsRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated int32 id = 1;</code>
+     * Generated from protobuf field <code>repeated int32 ids = 1;</code>
      */
-    private $id;
+    private $ids;
 
     /**
      * Constructor.
@@ -24,7 +24,7 @@ class FindUsersByIdsRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type int[]|\Google\Protobuf\Internal\RepeatedField $id
+     *     @type int[]|\Google\Protobuf\Internal\RepeatedField $ids
      * }
      */
     public function __construct($data = NULL) {
@@ -33,23 +33,23 @@ class FindUsersByIdsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 id = 1;</code>
+     * Generated from protobuf field <code>repeated int32 ids = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getId()
+    public function getIds()
     {
-        return $this->id;
+        return $this->ids;
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 id = 1;</code>
+     * Generated from protobuf field <code>repeated int32 ids = 1;</code>
      * @param int[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setId($var)
+    public function setIds($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::INT32);
-        $this->id = $arr;
+        $this->ids = $arr;
 
         return $this;
     }
