@@ -14,6 +14,7 @@ use RealtimeChat\Rpc\FindUsersByIdsRequest;
 use RealtimeChat\Rpc\FindUsersByIdsResponse;
 use RealtimeChat\Rpc\FindUserByEmailRequest;
 use RealtimeChat\Rpc\FindUserByEmailResponse;
+use RealtimeChat\Rpc\Models\Code;
 use RealtimeChat\Rpc\Models\User;
 use RealtimeChat\Rpc\UpdateUserByIdRequest;
 use RealtimeChat\Rpc\UpdateUserByIdResponse;
@@ -35,7 +36,7 @@ class UserClient extends Client implements UserServiceInterface
         return $response->getData();
 	}
 	
-	public function findByIds(FindUsersByIdsRequest $request)
+	public function findByIds(FindUsersByIdsRequest $request): array
 	{
 		$response = new FindUsersByIdsResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'findByIds'));
@@ -92,6 +93,10 @@ class UserClient extends Client implements UserServiceInterface
 	{
 		$response = new VerifyUserPasswordResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'verifyPassword'));
+
+		if ($response->getStatus()->getCode() === Code::UNAUTHENTICATED) {
+			return false;
+		}
 
 		$this->handleError($response->getStatus());
 
