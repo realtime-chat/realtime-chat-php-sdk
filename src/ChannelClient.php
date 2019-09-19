@@ -61,7 +61,7 @@ class ChannelClient extends Client implements ChannelServiceInterface
 		return true;
 	}
 
-	public function getPatricipantIds(GetChannelParticipantIdsRequest $request): array
+	public function getParticipantIds(GetChannelParticipantIdsRequest $request): array
 	{
 		$response = new GetChannelParticipantIdsResponse();
 		$response->mergeFromString($this->makeRequest($request, $this->route, 'getParticipantIds'));

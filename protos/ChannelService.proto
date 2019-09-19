@@ -12,7 +12,7 @@ service ChannelService {
     rpc create (CreateChannelRequest) returns (CreateChannelResponse);
     rpc updateById (UpdateChannelByIdRequest) returns (UpdateChannelByIdResponse);
     rpc deleteById (DeleteChannelByIdRequest) returns (DeleteChannelByIdResponse);
-    rpc getPatricipantIds (GetChannelParticipantIdsRequest) returns (GetChannelParticipantIdsResponse);
+    rpc getParticipantIds (GetChannelParticipantIdsRequest) returns (GetChannelParticipantIdsResponse);
 }
 
 message FindChannelByIdRequest {
