@@ -41,5 +41,13 @@ interface ChannelServiceInterface
      */
     public function deleteById(\RealtimeChat\Rpc\DeleteChannelByIdRequest $request);
 
+    /**
+     * Method <code>getPatricipantIds</code>
+     *
+     * @param \RealtimeChat\Rpc\GetChannelParticipantIdsRequest $request
+     * @return \RealtimeChat\Rpc\GetChannelParticipantIdsResponse
+     */
+    public function getPatricipantIds(\RealtimeChat\Rpc\GetChannelParticipantIdsRequest $request);
+
 }
 
