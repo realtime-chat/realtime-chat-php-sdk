@@ -65,5 +65,5 @@ message GetChannelParticipantIdsRequest {
 
 message GetChannelParticipantIdsResponse {
     realtimeChat.rpc.models.Status status = 1;
-    repeated int32 ids = 2;
+    repeated int32 data = 2;
 }

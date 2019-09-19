@@ -18,9 +18,9 @@ class GetChannelParticipantIdsResponse extends \Google\Protobuf\Internal\Message
      */
     private $status = null;
     /**
-     * Generated from protobuf field <code>repeated int32 ids = 2;</code>
+     * Generated from protobuf field <code>repeated int32 data = 2;</code>
      */
-    private $ids;
+    private $data;
 
     /**
      * Constructor.
@@ -29,7 +29,7 @@ class GetChannelParticipantIdsResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \RealtimeChat\Rpc\Models\Status $status
-     *     @type int[]|\Google\Protobuf\Internal\RepeatedField $ids
+     *     @type int[]|\Google\Protobuf\Internal\RepeatedField $data
      * }
      */
     public function __construct($data = NULL) {
@@ -60,23 +60,23 @@ class GetChannelParticipantIdsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 ids = 2;</code>
+     * Generated from protobuf field <code>repeated int32 data = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
-    public function getIds()
+    public function getData()
     {
-        return $this->ids;
+        return $this->data;
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 ids = 2;</code>
+     * Generated from protobuf field <code>repeated int32 data = 2;</code>
      * @param int[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
-    public function setIds($var)
+    public function setData($var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::INT32);
-        $this->ids = $arr;
+        $this->data = $arr;
 
         return $this;
     }
