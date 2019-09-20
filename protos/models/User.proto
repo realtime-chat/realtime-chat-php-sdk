@@ -9,4 +9,5 @@ message User {
   string email = 4;
   string created_at = 5;
   string updated_at = 6;
+  string avatar_url = 7;
 }

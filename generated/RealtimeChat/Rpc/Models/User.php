@@ -37,6 +37,10 @@ class User extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string updated_at = 6;</code>
      */
     private $updated_at = '';
+    /**
+     * Generated from protobuf field <code>string avatar_url = 7;</code>
+     */
+    private $avatar_url = '';
 
     /**
      * Constructor.
@@ -50,6 +54,7 @@ class User extends \Google\Protobuf\Internal\Message
      *     @type string $email
      *     @type string $created_at
      *     @type string $updated_at
+     *     @type string $avatar_url
      * }
      */
     public function __construct($data = NULL) {
@@ -185,6 +190,28 @@ class User extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->updated_at = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string avatar_url = 7;</code>
+     * @return string
+     */
+    public function getAvatarUrl()
+    {
+        return $this->avatar_url;
+    }
+
+    /**
+     * Generated from protobuf field <code>string avatar_url = 7;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAvatarUrl($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->avatar_url = $var;
 
         return $this;
     }

@@ -29,6 +29,10 @@ class CreateUserRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string password = 4;</code>
      */
     private $password = '';
+    /**
+     * Generated from protobuf field <code>string avatar_url = 5;</code>
+     */
+    private $avatar_url = '';
 
     /**
      * Constructor.
@@ -40,6 +44,7 @@ class CreateUserRequest extends \Google\Protobuf\Internal\Message
      *     @type string $last_name
      *     @type string $email
      *     @type string $password
+     *     @type string $avatar_url
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +136,28 @@ class CreateUserRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->password = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string avatar_url = 5;</code>
+     * @return string
+     */
+    public function getAvatarUrl()
+    {
+        return $this->avatar_url;
+    }
+
+    /**
+     * Generated from protobuf field <code>string avatar_url = 5;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAvatarUrl($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->avatar_url = $var;
 
         return $this;
     }
