@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "models/Status.proto";
+import "models/TokenPayload.proto";
+
+package realtimeChat.rpc;
+
+option php_generic_services = true;
+
+service AuthService {
+  rpc verifyToken (VerifyTokenRequest) returns (VerifyTokenResponse);
+}
+
+message VerifyTokenRequest {
+  string token_type = 1;
+  string token = 2;
+}
+
+message VerifyTokenResponse {
+  realtimeChat.rpc.models.Status status = 1;
+  realtimeChat.rpc.models.TokenPayload data = 2;
+}
