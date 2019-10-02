@@ -29,6 +29,10 @@ class UpdateWorkspaceByIdRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int32 owner_id = 4;</code>
      */
     private $owner_id = 0;
+    /**
+     * Generated from protobuf field <code>string type = 5;</code>
+     */
+    private $type = '';
 
     /**
      * Constructor.
@@ -40,6 +44,7 @@ class UpdateWorkspaceByIdRequest extends \Google\Protobuf\Internal\Message
      *     @type string $name
      *     @type string $description
      *     @type int $owner_id
+     *     @type string $type
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +136,28 @@ class UpdateWorkspaceByIdRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt32($var);
         $this->owner_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string type = 5;</code>
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Generated from protobuf field <code>string type = 5;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setType($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->type = $var;
 
         return $this;
     }

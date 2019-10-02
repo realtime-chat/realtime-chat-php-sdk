@@ -41,6 +41,10 @@ class Workspace extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string deleted_at = 7;</code>
      */
     private $deleted_at = '';
+    /**
+     * Generated from protobuf field <code>string type = 8;</code>
+     */
+    private $type = '';
 
     /**
      * Constructor.
@@ -55,6 +59,7 @@ class Workspace extends \Google\Protobuf\Internal\Message
      *     @type string $created_at
      *     @type string $updated_at
      *     @type string $deleted_at
+     *     @type string $type
      * }
      */
     public function __construct($data = NULL) {
@@ -212,6 +217,28 @@ class Workspace extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->deleted_at = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string type = 8;</code>
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Generated from protobuf field <code>string type = 8;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setType($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->type = $var;
 
         return $this;
     }
