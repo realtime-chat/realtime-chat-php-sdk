@@ -13,6 +13,8 @@ use RealtimeChat\Rpc\FindWorkspaceByIdResponse;
 use RealtimeChat\Rpc\Models\Workspace;
 use RealtimeChat\Rpc\UpdateWorkspaceByIdRequest;
 use RealtimeChat\Rpc\UpdateWorkspaceByIdResponse;
+use RealtimeChat\Rpc\GetWorkspaceParticipantIdsRequest;
+use RealtimeChat\Rpc\GetWorkspaceParticipantIdsResponse;
 use RealtimeChat\Rpc\WorkspaceServiceInterface;
 
 class WorkspaceClient extends Client implements WorkspaceServiceInterface
@@ -57,5 +59,18 @@ class WorkspaceClient extends Client implements WorkspaceServiceInterface
 		$this->handleError($response->getStatus());
 
 		return true;
+	}
+
+	public function getParticipantIds(GetWorkspaceParticipantIdsRequest $request): array
+	{
+		$response = new GetWorkspaceParticipantIdsResponse();
+		$response->mergeFromString($this->makeRequest($request, $this->route, 'getParticipantIds'));
+
+		$this->handleError($response->getStatus());
+
+		$data = [];
+		array_push($data, ...$response->getData());
+
+		return $data;
 	}
 }

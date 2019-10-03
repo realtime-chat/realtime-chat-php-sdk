@@ -41,5 +41,13 @@ interface WorkspaceServiceInterface
      */
     public function deleteById(\RealtimeChat\Rpc\DeleteWorkspaceByIdRequest $request);
 
+    /**
+     * Method <code>getParticipantIds</code>
+     *
+     * @param \RealtimeChat\Rpc\GetWorkspaceParticipantIdsRequest $request
+     * @return \RealtimeChat\Rpc\GetWorkspaceParticipantIdsResponse
+     */
+    public function getParticipantIds(\RealtimeChat\Rpc\GetWorkspaceParticipantIdsRequest $request);
+
 }
 

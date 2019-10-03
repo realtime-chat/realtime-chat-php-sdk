@@ -12,6 +12,7 @@ service WorkspaceService {
     rpc create (CreateWorkspaceRequest) returns (CreateWorkspaceResponse);
     rpc updateById (UpdateWorkspaceByIdRequest) returns (UpdateWorkspaceByIdResponse);
     rpc deleteById (DeleteWorkspaceByIdRequest) returns (DeleteWorkspaceByIdResponse);
+    rpc getParticipantIds (GetWorkspaceParticipantIdsRequest) returns (GetWorkspaceParticipantIdsResponse);
 }
 
 message FindWorkspaceByIdRequest {
@@ -54,4 +55,13 @@ message DeleteWorkspaceByIdRequest {
 
 message DeleteWorkspaceByIdResponse {
     realtimeChat.rpc.models.Status status = 1;
+}
+
+message GetWorkspaceParticipantIdsRequest {
+    int32 id = 1;
+}
+
+message GetWorkspaceParticipantIdsResponse {
+    realtimeChat.rpc.models.Status status = 1;
+    repeated int32 data = 2;
 }
