@@ -192,6 +192,10 @@ class Code
      * Generated from protobuf enum <code>DATA_LOSS = 15;</code>
      */
     const DATA_LOSS = 15;
+    /**
+     * Generated from protobuf enum <code>TOKEN_EXPIRED = 17;</code>
+     */
+    const TOKEN_EXPIRED = 17;
 
     private static $valueToName = [
         self::OK => 'OK',
@@ -211,6 +215,7 @@ class Code
         self::INTERNAL => 'INTERNAL',
         self::UNAVAILABLE => 'UNAVAILABLE',
         self::DATA_LOSS => 'DATA_LOSS',
+        self::TOKEN_EXPIRED => 'TOKEN_EXPIRED',
     ];
 
     public static function name($value)

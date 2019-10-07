@@ -9,6 +9,7 @@ use RealtimeChat\Exception\AlreadyExistsException;
 use RealtimeChat\Exception\InvalidArgumentException;
 use RealtimeChat\Exception\ModelNotFoundException;
 use RealtimeChat\Exception\PermissionDeniedException;
+use RealtimeChat\Exception\TokenExpiredException;
 use RealtimeChat\Exception\UnauthenticatedException;
 use RealtimeChat\Exception\UnknownException;
 use RealtimeChat\Rpc\Models\Code;
@@ -50,6 +51,8 @@ class Client
 				throw new ModelNotFoundException($status->getMessage(), $status->getCode());
 			case Code::UNAUTHENTICATED:
 				throw new UnauthenticatedException($status->getMessage(), $status->getCode());
+			case Code::TOKEN_EXPIRED:
+				throw new TokenExpiredException($status->getMessage(), $status->getCode());
 			case Code::PERMISSION_DENIED:
 				throw new PermissionDeniedException($status->getMessage(), $status->getCode());
 			case Code::UNKNOWN:

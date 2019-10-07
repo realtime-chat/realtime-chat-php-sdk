@@ -157,6 +157,8 @@ enum Code {
     //
     // HTTP Mapping: 500 Internal Server Error
     DATA_LOSS = 15;
+
+    TOKEN_EXPIRED = 17;
 }
 
 message Status {
