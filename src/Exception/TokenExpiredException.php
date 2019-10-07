@@ -8,5 +8,5 @@ use DomainException;
 
 class TokenExpiredException extends DomainException
 {
-    protected $message = 'Authentication token expired.';
+    protected $message = 'Access token expired.';
 }
