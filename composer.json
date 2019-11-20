@@ -1,5 +1,7 @@
 {
     "name": "allexus/realtime-chat-php-sdk",
+    "description": "SDK for Realtime Chat PHP services.",
+    "license": "MIT",
     "require": {
         "guzzlehttp/guzzle": "^6.3",
         "google/protobuf": "^3.9"
