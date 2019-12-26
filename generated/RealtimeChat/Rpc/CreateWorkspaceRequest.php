@@ -29,6 +29,10 @@ class CreateWorkspaceRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string type = 4;</code>
      */
     private $type = '';
+    /**
+     * Generated from protobuf field <code>string logo_url = 5;</code>
+     */
+    private $logo_url = '';
 
     /**
      * Constructor.
@@ -40,6 +44,7 @@ class CreateWorkspaceRequest extends \Google\Protobuf\Internal\Message
      *     @type string $description
      *     @type int $owner_id
      *     @type string $type
+     *     @type string $logo_url
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +136,28 @@ class CreateWorkspaceRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string logo_url = 5;</code>
+     * @return string
+     */
+    public function getLogoUrl()
+    {
+        return $this->logo_url;
+    }
+
+    /**
+     * Generated from protobuf field <code>string logo_url = 5;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setLogoUrl($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->logo_url = $var;
 
         return $this;
     }

@@ -11,4 +11,5 @@ message Workspace {
     string updated_at = 6;
     string deleted_at = 7;
     string type = 8;
+    string logo_url = 9;
 }

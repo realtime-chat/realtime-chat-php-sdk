@@ -29,6 +29,7 @@ message CreateWorkspaceRequest {
     string description = 2;
     int32 owner_id = 3;
     string type = 4;
+    string logo_url = 5;
 }
 
 message CreateWorkspaceResponse {
@@ -42,6 +43,7 @@ message UpdateWorkspaceByIdRequest {
     string description = 3;
     int32 owner_id = 4;
     string type = 5;
+    string logo_url = 6;
 }
 
 message UpdateWorkspaceByIdResponse {
