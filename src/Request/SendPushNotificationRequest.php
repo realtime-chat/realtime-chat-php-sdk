@@ -11,7 +11,7 @@ class SendPushNotificationRequest
     private $body;
 
     public function __construct(
-        string $userId,
+        $userId,
         string $title,
         string $body
     ) {
@@ -20,7 +20,10 @@ class SendPushNotificationRequest
         $this->body = $body;
     }
 
-    public function getUserId(): string
+	/**
+	 * @return int|string
+	 */
+    public function getUserId()
     {
         return $this->userId;
     }

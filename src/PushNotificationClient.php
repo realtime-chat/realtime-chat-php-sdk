@@ -14,8 +14,8 @@ class PushNotificationClient extends HTTPClient
     public function send(SendPushNotificationRequest $request): bool
     {
         $response = $this->client->post($this->route . '/send', [
-            'body' => [
-                'user_id' => $request->getUserId(),
+            \GuzzleHttp\RequestOptions::JSON => [
+                'userId' => $request->getUserId(),
                 'title' => $request->getTitle(),
                 'body' => $request->getBody()
             ]
@@ -29,8 +29,8 @@ class PushNotificationClient extends HTTPClient
     public function sendMulticast(SendMulticastPushNotificationRequest $request): bool
     {
         $response = $this->client->post($this->route . '/send', [
-            'body' => [
-                'user_ids' => $request->getUserIds(),
+            \GuzzleHttp\RequestOptions::JSON => [
+                'userIds' => $request->getUserIds(),
                 'title' => $request->getTitle(),
                 'body' => $request->getBody()
             ]
