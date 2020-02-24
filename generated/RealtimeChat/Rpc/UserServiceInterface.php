@@ -65,5 +65,13 @@ interface UserServiceInterface
      */
     public function verifyPassword(\RealtimeChat\Rpc\VerifyUserPasswordRequest $request);
 
+    /**
+     * Method <code>verifyEmail</code>
+     *
+     * @param \RealtimeChat\Rpc\VerifyUserEmailRequest $request
+     * @return \RealtimeChat\Rpc\VerifyUserEmailResponse
+     */
+    public function verifyEmail(\RealtimeChat\Rpc\VerifyUserEmailRequest $request);
+
 }
 

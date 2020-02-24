@@ -21,6 +21,8 @@ use RealtimeChat\Rpc\UpdateUserByIdResponse;
 use RealtimeChat\Rpc\UserServiceInterface;
 use RealtimeChat\Rpc\VerifyUserPasswordRequest;
 use RealtimeChat\Rpc\VerifyUserPasswordResponse;
+use RealtimeChat\Rpc\VerifyUserEmailRequest;
+use RealtimeChat\Rpc\VerifyUserEmailResponse;
 
 class UserClient extends Client implements UserServiceInterface
 {
@@ -93,6 +95,20 @@ class UserClient extends Client implements UserServiceInterface
     {
         $response = new VerifyUserPasswordResponse();
         $response->mergeFromString($this->makeRequest($request, $this->route, 'verifyPassword'));
+
+        if ($response->getStatus()->getCode() === Code::UNAUTHENTICATED) {
+            return false;
+        }
+
+        $this->handleError($response->getStatus());
+
+        return true;
+    }
+
+    public function verifyEmail(VerifyUserEmailRequest $request): bool
+    {
+        $response = new VerifyUserEmailResponse();
+        $response->mergeFromString($this->makeRequest($request, $this->route, 'verifyEmail'));
 
         if ($response->getStatus()->getCode() === Code::UNAUTHENTICATED) {
             return false;
