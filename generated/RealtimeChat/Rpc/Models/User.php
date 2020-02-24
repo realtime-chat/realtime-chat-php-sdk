@@ -41,6 +41,10 @@ class User extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string avatar_url = 7;</code>
      */
     private $avatar_url = '';
+    /**
+     * Generated from protobuf field <code>string email_verified_at = 8;</code>
+     */
+    private $email_verified_at = '';
 
     /**
      * Constructor.
@@ -55,6 +59,7 @@ class User extends \Google\Protobuf\Internal\Message
      *     @type string $created_at
      *     @type string $updated_at
      *     @type string $avatar_url
+     *     @type string $email_verified_at
      * }
      */
     public function __construct($data = NULL) {
@@ -212,6 +217,28 @@ class User extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->avatar_url = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string email_verified_at = 8;</code>
+     * @return string
+     */
+    public function getEmailVerifiedAt()
+    {
+        return $this->email_verified_at;
+    }
+
+    /**
+     * Generated from protobuf field <code>string email_verified_at = 8;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setEmailVerifiedAt($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->email_verified_at = $var;
 
         return $this;
     }

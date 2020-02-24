@@ -28,33 +28,33 @@ class UserClient extends Client implements UserServiceInterface
 
     public function findById(FindUserByIdRequest $request): User
     {
-		$response = new FindUserByIdResponse();
+        $response = new FindUserByIdResponse();
         $response->mergeFromString($this->makeRequest($request, $this->route, 'findById'));
 
         $this->handleError($response->getStatus());
 
         return $response->getData();
-	}
-	
-	public function findByIds(FindUsersByIdsRequest $request): array
-	{
-		$response = new FindUsersByIdsResponse();
-		$response->mergeFromString($this->makeRequest($request, $this->route, 'findByIds'));
+    }
+    
+    public function findByIds(FindUsersByIdsRequest $request): array
+    {
+        $response = new FindUsersByIdsResponse();
+        $response->mergeFromString($this->makeRequest($request, $this->route, 'findByIds'));
 
-		$this->handleError($response->getStatus());
+        $this->handleError($response->getStatus());
 
-		$data = [];
-		array_push($data, ...$response->getData());
+        $data = [];
+        array_push($data, ...$response->getData());
 
         return $data;
-	}
+    }
 
     public function findByEmail(FindUserByEmailRequest $request): User
     {
-		$response = new FindUserByEmailResponse();
+        $response = new FindUserByEmailResponse();
         $response->mergeFromString($this->makeRequest($request, $this->route, 'findByEmail'));
 
-		$this->handleError($response->getStatus());
+        $this->handleError($response->getStatus());
 
         return $response->getData();
     }
@@ -64,42 +64,42 @@ class UserClient extends Client implements UserServiceInterface
         $response = new CreateUserResponse();
         $response->mergeFromString($this->makeRequest($request, $this->route, 'create'));
 
-		$this->handleError($response->getStatus());
+        $this->handleError($response->getStatus());
 
         return $response->getData();
     }
 
     public function updateById(UpdateUserByIdRequest $request): User
-	{
-		$response = new UpdateUserByIdResponse();
-		$response->mergeFromString($this->makeRequest($request, $this->route, 'updateById'));
+    {
+        $response = new UpdateUserByIdResponse();
+        $response->mergeFromString($this->makeRequest($request, $this->route, 'updateById'));
 
-		$this->handleError($response->getStatus());
+        $this->handleError($response->getStatus());
 
-		return $response->getData();
-	}
+        return $response->getData();
+    }
 
-	public function deleteById(DeleteUserByIdRequest $request): bool
-	{
-		$response = new DeleteUserByIdResponse();
-		$response->mergeFromString($this->makeRequest($request, $this->route, 'deleteById'));
+    public function deleteById(DeleteUserByIdRequest $request): bool
+    {
+        $response = new DeleteUserByIdResponse();
+        $response->mergeFromString($this->makeRequest($request, $this->route, 'deleteById'));
 
-		$this->handleError($response->getStatus());
+        $this->handleError($response->getStatus());
 
-		return true;
-	}
+        return true;
+    }
 
-	public function verifyPassword(VerifyUserPasswordRequest $request): bool
-	{
-		$response = new VerifyUserPasswordResponse();
-		$response->mergeFromString($this->makeRequest($request, $this->route, 'verifyPassword'));
+    public function verifyPassword(VerifyUserPasswordRequest $request): bool
+    {
+        $response = new VerifyUserPasswordResponse();
+        $response->mergeFromString($this->makeRequest($request, $this->route, 'verifyPassword'));
 
-		if ($response->getStatus()->getCode() === Code::UNAUTHENTICATED) {
-			return false;
-		}
+        if ($response->getStatus()->getCode() === Code::UNAUTHENTICATED) {
+            return false;
+        }
 
-		$this->handleError($response->getStatus());
+        $this->handleError($response->getStatus());
 
-		return true;
-	}
+        return true;
+    }
 }

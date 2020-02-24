@@ -64,6 +64,7 @@ message UpdateUserByIdRequest {
   string email = 4;
   string password = 5;
   string avatar_url = 6;
+  string email_verified_at = 7;
 }
 
 message UpdateUserByIdResponse {
